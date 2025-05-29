@@ -1,0 +1,13 @@
+[build]
+builder = "nixpacks"
+buildCommand = "pip install -r model/requirements.txt"
+
+[deploy]
+startCommand = "cd model && uvicorn server:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/docs"
+healthcheckTimeout = 100
+restartPolicyType = "on-failure"
+restartPolicyMaxRetries = 10
+
+[deploy.worker]
+startCommand = "cd model && python scheduler.py" 
