@@ -1,9 +1,9 @@
 [build]
 builder = "nixpacks"
-buildCommand = "pip install -r model/requirements.txt"
+buildCommand = "pip install -r model/requirements.txt && pip install uvicorn"
 
 [deploy]
-startCommand = "cd model && uvicorn server:app --host 0.0.0.0 --port $PORT"
+startCommand = "cd model && python -m uvicorn server:app --host 0.0.0.0 --port $PORT"
 healthcheckPath = "/docs"
 healthcheckTimeout = 100
 restartPolicyType = "on-failure"
