@@ -1,0 +1,56 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Environment variables
+.env
+.env.*
+
+# Node modules
+node_modules/
+
+# Git
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data, models, and media
+*.db
+*.sqlite3
+*.h5
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.zip
+*.tar.gz
+*.tar
+*.jpg
+*.png
+*.jpeg
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.csv
+*.tsv
+*.json
+*.pdf
+*.docx
+*.xlsx
+
+# Logs
+*.log
+
+# Other
+*.bak
+*.swp 
