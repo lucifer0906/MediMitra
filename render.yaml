@@ -1,0 +1,24 @@
+services:
+  # Backend Service
+  - type: web
+    name: medimitra-backend
+    env: python
+    buildCommand: cd model && pip install -r requirements.txt
+    startCommand: cd model && uvicorn server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: SCHEDULE_FILE_PATH
+        value: schedule.json
+
+  # Frontend Service
+  - type: web
+    name: medimitra-frontend
+    env: node
+    buildCommand: cd interface && npm install && npm run build
+    startCommand: cd interface && npm start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://medimitra-backend.onrender.com 
